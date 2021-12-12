@@ -5,42 +5,31 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="784893cc-7587-41a7-bb57-f91d267968c1" name="Changes" comment="">
-      <change afterPath="$PROJECT_DIR$/untitled/.gitignore" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/untitled/gradle.properties" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/untitled/src/main/java/com/semivanilla/custommotd/CustomMOTD.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/untitled/src/main/java/com/semivanilla/custommotd/commands/MOTDCommand.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/untitled/src/main/java/com/semivanilla/custommotd/commands/SubCommand.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/untitled/src/main/java/com/semivanilla/custommotd/commands/subcommands/ApplySubCommand.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/untitled/src/main/java/com/semivanilla/custommotd/commands/subcommands/CheckSubCommand.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/untitled/src/main/java/com/semivanilla/custommotd/commands/subcommands/CreateSubCommand.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/untitled/src/main/java/com/semivanilla/custommotd/commands/subcommands/DefaultSubCommand.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/untitled/src/main/java/com/semivanilla/custommotd/commands/subcommands/HelpSubCommand.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/untitled/src/main/java/com/semivanilla/custommotd/commands/subcommands/ListSubCommand.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/untitled/src/main/java/com/semivanilla/custommotd/commands/subcommands/ReloadSubCommand.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/untitled/src/main/java/com/semivanilla/custommotd/config/Config.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/untitled/src/main/java/com/semivanilla/custommotd/config/MOTDConfig.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/untitled/src/main/java/com/semivanilla/custommotd/listener/PingListener.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/untitled/src/main/java/com/semivanilla/custommotd/manager/MOTDManager.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/untitled/src/main/java/com/semivanilla/custommotd/manager/wrapper/MOTDWrapper.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.classpath" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/.gitignore" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/misc.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/modules.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/runConfigurations.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/vcs.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/.project" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/.settings/org.eclipse.jdt.core.prefs" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/CustomMOTD.iml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/bin/com/eliaseeg/custommotd/CustomMOTD.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/bin/com/eliaseeg/custommotd/CustomMOTDCommand.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/bin/com/eliaseeg/custommotd/PingListener.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/bin/config.yml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/bin/plugin.yml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/com/eliaseeg/custommotd/CustomMOTD.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/com/eliaseeg/custommotd/CustomMOTDCommand.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/com/eliaseeg/custommotd/PingListener.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/config.yml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/plugin.yml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/gradle.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/gradle.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/modules/CustomMOTD.main.iml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/untitled/.gitignore" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/untitled/build.gradle.kts" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/untitled/gradle.properties" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/untitled/gradle/wrapper/gradle-wrapper.properties" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/untitled/gradlew" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/untitled/gradlew.bat" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/untitled/settings.gradle.kts" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/untitled/src/main/java/com/semivanilla/custommotd/CustomMOTD.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/untitled/src/main/java/com/semivanilla/custommotd/commands/MOTDCommand.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/untitled/src/main/java/com/semivanilla/custommotd/commands/SubCommand.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/untitled/src/main/java/com/semivanilla/custommotd/commands/subcommands/ApplySubCommand.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/untitled/src/main/java/com/semivanilla/custommotd/commands/subcommands/CheckSubCommand.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/untitled/src/main/java/com/semivanilla/custommotd/commands/subcommands/CreateSubCommand.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/untitled/src/main/java/com/semivanilla/custommotd/commands/subcommands/DefaultSubCommand.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/untitled/src/main/java/com/semivanilla/custommotd/commands/subcommands/HelpSubCommand.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/untitled/src/main/java/com/semivanilla/custommotd/commands/subcommands/ListSubCommand.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/untitled/src/main/java/com/semivanilla/custommotd/commands/subcommands/ReloadSubCommand.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/untitled/src/main/java/com/semivanilla/custommotd/config/Config.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/untitled/src/main/java/com/semivanilla/custommotd/config/MOTDConfig.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/untitled/src/main/java/com/semivanilla/custommotd/listener/PingListener.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/untitled/src/main/java/com/semivanilla/custommotd/manager/MOTDManager.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/untitled/src/main/java/com/semivanilla/custommotd/manager/wrapper/MOTDWrapper.java" beforeDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -48,6 +37,9 @@
     <option name="LAST_RESOLUTION" value="IGNORE" />
   </component>
   <component name="ExternalProjectsData">
+    <projectState path="$PROJECT_DIR$">
+      <ProjectState />
+    </projectState>
     <projectState path="$PROJECT_DIR$/untitled">
       <ProjectState />
     </projectState>
@@ -56,6 +48,9 @@
     <system id="GRADLE">
       <state>
         <task path="$PROJECT_DIR$/untitled">
+          <activation />
+        </task>
+        <task path="$PROJECT_DIR$">
           <activation />
         </task>
         <projects_view>
@@ -69,18 +64,6 @@
                 <item name="" type="6a2764b6:ExternalProjectsStructure$RootNode" />
                 <item name="CustomMOTD" type="f1a62948:ProjectNode" />
                 <item name="Tasks" type="e4a08cd1:TasksNode" />
-              </path>
-              <path>
-                <item name="" type="6a2764b6:ExternalProjectsStructure$RootNode" />
-                <item name="CustomMOTD" type="f1a62948:ProjectNode" />
-                <item name="Tasks" type="e4a08cd1:TasksNode" />
-                <item name="build" type="c8890929:TasksNode$1" />
-              </path>
-              <path>
-                <item name="" type="6a2764b6:ExternalProjectsStructure$RootNode" />
-                <item name="CustomMOTD" type="f1a62948:ProjectNode" />
-                <item name="Tasks" type="e4a08cd1:TasksNode" />
-                <item name="run paper" type="c8890929:TasksNode$1" />
               </path>
             </expand>
             <select />
@@ -107,8 +90,8 @@
   <component name="PropertiesComponent">
     <property name="RunOnceActivity.OpenProjectViewOnStart" value="true" />
     <property name="RunOnceActivity.ShowReadmeOnStart" value="true" />
-    <property name="last_opened_file_path" value="$PROJECT_DIR$/untitled" />
-    <property name="project.structure.last.edited" value="Modules" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$/build.gradle.kts" />
+    <property name="project.structure.last.edited" value="Project" />
     <property name="project.structure.proportion" value="0.15" />
     <property name="project.structure.side.proportion" value="0.2" />
     <property name="settings.editor.selected.configurable" value="reference.settingsdialog.project.gradle" />
@@ -125,7 +108,7 @@
       <recent name="com.semivanilla.custommotd.config" />
     </key>
   </component>
-  <component name="RunManager" selected="Gradle.untitled [runServer]">
+  <component name="RunManager" selected="Gradle.untitled [build]">
     <configuration name="untitled [build]" type="GradleRunConfiguration" factoryName="Gradle" temporary="true">
       <ExternalSystemSettings>
         <option name="executionName" />
@@ -170,8 +153,8 @@
     </configuration>
     <recent_temporary>
       <list>
-        <item itemvalue="Gradle.untitled [runServer]" />
         <item itemvalue="Gradle.untitled [build]" />
+        <item itemvalue="Gradle.untitled [runServer]" />
       </list>
     </recent_temporary>
   </component>
