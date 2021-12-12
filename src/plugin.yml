@@ -1,0 +1,7 @@
+name: CustomMOTD
+main: com.eliaseeg.custommotd.CustomMOTD
+version: 1.0
+author: Eliaseeg
+commands:
+    custommotd:
+        description: Set motd in-game or in console.
