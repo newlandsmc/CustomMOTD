@@ -60,7 +60,7 @@ public class MOTDConfig extends YamlConfiguration {
     public void delete() {
         synchronized (saveLock) {
             if (!file.delete()) {
-//                Logger.error("Could not delete file! (" + motdTitle + ".yml)");
+                CustomMOTD.getInstance().getLogger().severe("Could not delete file! (" + motdTitle + ".yml)");
             }
         }
     }
@@ -85,8 +85,16 @@ public class MOTDConfig extends YamlConfiguration {
         set("line2", line2);
     }
 
+    public boolean isRestricted() {
+        return getBoolean("restricted", false);
+    }
+
+    public void setRestricted(boolean restricted) {
+        set("restricted", restricted);
+    }
+
     public boolean isActive() {
-        return getBoolean("active");
+        return getBoolean("active", false);
     }
 
     public void setActive(boolean active) {

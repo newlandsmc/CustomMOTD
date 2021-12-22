@@ -8,6 +8,7 @@ import org.bukkit.command.TabCompleter;
 import org.bukkit.util.StringUtil;
 
 import java.util.ArrayList;
+import java.util.Arrays;
 import java.util.Collections;
 import java.util.List;
 
@@ -26,20 +27,16 @@ public class MOTDCommand implements CommandExecutor, TabCompleter  {
             sender.sendMessage(Config.CommandHelp);
             return true;
         }
-
-        for (SubCommand command : SubCommand.getCommands()) {
-            if (!command.getSub().equalsIgnoreCase(args[0])) {
-                continue;
-            }
-
-            if (command.getPermission() != null) {
-                if (!sender.hasPermission(command.getPermission())) {
+        String command = args[0];
+        if (commands.contains(command)) {
+            SubCommand subCommand = SubCommand.getCommands().get(command);
+            if (subCommand.getPermission() != null) {
+                if (!sender.hasPermission(subCommand.getPermission())) {
                     sender.sendMessage(Config.NoPermission);
                     return true;
                 }
             }
-
-            command.onCommand(sender, args);
+            subCommand.onCommand(sender, Arrays.copyOfRange(args,1, args.length));
             return true;
         }
         sender.sendMessage(Config.CommandHelp);

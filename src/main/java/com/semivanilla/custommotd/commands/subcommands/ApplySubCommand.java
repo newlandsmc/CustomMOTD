@@ -1,6 +1,8 @@
 package com.semivanilla.custommotd.commands.subcommands;
 
+import com.semivanilla.custommotd.CustomMOTD;
 import com.semivanilla.custommotd.commands.SubCommand;
+import com.semivanilla.custommotd.manager.wrapper.MOTDWrapper;
 import org.bukkit.command.CommandSender;
 
 public class ApplySubCommand extends SubCommand {
@@ -22,12 +24,27 @@ public class ApplySubCommand extends SubCommand {
 
     @Override
     public String getSyntax() {
-        return "/custommotd apply <name>";
+        return "usage: /custommotd apply <name>";
     }
 
     @Override
     public void onCommand(CommandSender sender, String[] args) {
-
+        if (args.length == 0) {
+            sender.sendMessage(getSyntax());
+            return;
+        }
+        String motd = String.join(" ", args);
+        MOTDWrapper wrapper = CustomMOTD.getMotdManager().getMOTD(motd);
+        if (wrapper == null) {
+            sender.sendMessage("There's no motd by this name. " + motd);
+            return;
+        }
+        if (wrapper.isRestricted()) {
+            sender.sendMessage("You can not set this motd.");
+            return;
+        }
+        CustomMOTD.getMotdManager().activateMOTD(wrapper);
+        sender.sendMessage("The new motd is " + wrapper.getTitle());
     }
 
 }

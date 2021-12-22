@@ -7,6 +7,7 @@ public class MOTDWrapper {
     private final String title;
     private String line1;
     private String line2;
+    private final boolean restricted;
     private boolean active;
 
     private final MOTDConfig config;
@@ -16,14 +17,16 @@ public class MOTDWrapper {
         this.title = motdConfig.getMotdTitle();
         this.line1 = motdConfig.getLine1();
         this.line2 = motdConfig.getLine2();
+        this.restricted = motdConfig.isRestricted();
         this.active = motdConfig.isActive();
         this.config = motdConfig;
     }
 
-    public MOTDWrapper(String Title, String Line1, String Line2, boolean Active) {
+    public MOTDWrapper(String Title, String Line1, String Line2, boolean restricted, boolean Active) {
         this.title = Title;
         this.line1 = Line1;
         this.line2 = Line2;
+        this.restricted = restricted;
         this.active = Active;
         this.config = MOTDConfig.getConfig(title);
         config.setLine1(line1);
@@ -44,32 +47,37 @@ public class MOTDWrapper {
         return line2;
     }
 
-    public void setLine1(String line1) {
-        this.line1 = line1;
-        this.dirty = true;
+    public void setLine1(String input) {
+        line1 = input;
+        dirty = true;
     }
 
-    public void setLine2(String line2) {
-        this.line2 = line2;
-        this.dirty = true;
+    public void setLine2(String input) {
+        line2 = input;
+        dirty = true;
+    }
+
+    public boolean isRestricted() {
+        return restricted;
     }
 
     public boolean isActive() {
         return active;
     }
 
-    public void setActive(boolean active) {
-        this.active = active;
-        this.dirty = true;
+    public void setActive(boolean status) {
+        active = status;
+        dirty = true;
     }
 
     public void save() {
-        if (this.dirty) {
-            this.config.setLine1(this.line1);
-            this.config.setLine2(this.line2);
-            this.config.setActive(this.active);
-            this.config.save();
-            this.dirty = false;
+        if (dirty) {
+            config.setLine1(line1);
+            config.setLine2(line2);
+            config.setActive(active);
+            config.setRestricted(restricted);
+            config.save();
+            dirty = false;
         }
     }
 

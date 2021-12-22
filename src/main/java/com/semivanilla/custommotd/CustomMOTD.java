@@ -16,10 +16,6 @@ public class CustomMOTD extends JavaPlugin {
         motdManager = new MOTDManager();
     }
 
-    public MOTDManager getMotdManager() {
-        return motdManager;
-    }
-
     @Override
     public void onEnable() {
         instance = this;
@@ -34,6 +30,7 @@ public class CustomMOTD extends JavaPlugin {
     @Override
     public void onDisable() {
         getMotdManager().saveMotds();
+        getMotdManager().unloadMotds();
         instance = null;
     }
 
@@ -45,5 +42,9 @@ public class CustomMOTD extends JavaPlugin {
 
     public static CustomMOTD getInstance() {
         return instance;
+    }
+
+    public static MOTDManager getMotdManager() {
+        return instance.motdManager;
     }
 }

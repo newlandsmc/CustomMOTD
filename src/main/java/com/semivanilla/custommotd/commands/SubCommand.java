@@ -1,6 +1,7 @@
 package com.semivanilla.custommotd.commands;
 
 import java.util.ArrayList;
+import java.util.HashMap;
 import java.util.List;
 
 import com.semivanilla.custommotd.commands.subcommands.*;
@@ -8,7 +9,7 @@ import org.bukkit.command.CommandSender;
 
 public abstract class SubCommand {
 
-    private static List<SubCommand> commands;
+    private static HashMap<String, SubCommand> commands;
 
     public abstract String getSub();
     public abstract String getPermission();
@@ -18,21 +19,23 @@ public abstract class SubCommand {
     public abstract void onCommand(CommandSender sender, String[] args);
 
     public static void loadCommands() {
-        commands = new ArrayList<SubCommand>();
+        commands = new HashMap<>();
 
-        loadCommand(new ApplySubCommand(), new CheckSubCommand(), new CreateSubCommand(),
-                    new DefaultSubCommand(), new HelpSubCommand(), new ListSubCommand(),
-                    new ReloadSubCommand());
+        loadCommand(
+                new HelpSubCommand(),
+                new ApplySubCommand(), new CheckSubCommand(), new CreateSubCommand(),
+                new DefaultSubCommand(), new ListSubCommand(), new CounterSubCommand(),
+                new ReloadSubCommand());
     }
 
     private static void loadCommand(SubCommand ... subs) {
         for (SubCommand sub: subs) {
-            commands.add(sub);
+            commands.put(sub.getSub(), sub);
             MOTDCommand.commands.add(sub.getSub());
         }
     }
 
-    public static List<SubCommand> getCommands() {
+    public static HashMap<String, SubCommand> getCommands() {
         return commands;
     }
 }

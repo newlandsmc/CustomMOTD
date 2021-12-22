@@ -66,6 +66,10 @@ public class Config {
                 }
             }
         }
+        saveConfig();
+    }
+
+    static void saveConfig() {
         try {
             config.save(CONFIG_FILE);
         } catch (IOException ex) {
@@ -112,13 +116,33 @@ public class Config {
     public static String currentMOTD = "Custom MOTD is <motdname>";
     public static String NoPermission = "You don't have permission to run this command.";
     public static String CommandHelp = "TODO";
-    public static String CommandList = "<list>";
+    public static String CommandHelpList = "<command>: <usage> - <description>";
+    public static String CommandList = "Available motd: <list>";
+    public static String CommandReload = "Reloaded configuration.";
+    public static String CommandCheck = "The current active motd is <motd>.";
     private static void messages() {
         MOTDSet = getString("messages.motd.set-motd", MOTDSet);
         currentMOTD = getString("messages.motd.current-motd", currentMOTD);
         NoPermission = getString("messages.command.no-permission", NoPermission);
-        CommandHelp = getString("messages.command.command-help-message", CommandHelp);
-        CommandList = getString("messages.command.command-list-message", CommandList);
+        CommandHelp = getString("messages.command.command-help", CommandHelp);
+        CommandHelpList = getString("messages.command.command-help-list", CommandHelpList);
+        CommandList = getString("messages.command.command-list", CommandList);
+        CommandCheck = getString("messages.command.command-check", CommandCheck);
     }
+
+    // TODO move these into counter.yml
+    public static int counter = 0;
+    public static String counterMOTD = "mcmmo";
+    private static void motdSettings() {
+        counter = getInt("counter.count", counter);
+        counterMOTD = getString("counter.motd", counterMOTD);
+    }
+
+    public static void setCounter(int count) {
+        counter = count;
+        set("counter.count", counter);
+        saveConfig();
+    }
+    // EO TODO
 
 }

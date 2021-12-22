@@ -3,6 +3,8 @@ package com.semivanilla.custommotd.commands.subcommands;
 import com.semivanilla.custommotd.CustomMOTD;
 import com.semivanilla.custommotd.commands.SubCommand;
 import com.semivanilla.custommotd.config.Config;
+import com.semivanilla.custommotd.util.Util;
+import net.kyori.adventure.text.Component;
 import org.bukkit.command.CommandSender;
 
 public class ReloadSubCommand extends SubCommand {
@@ -24,13 +26,15 @@ public class ReloadSubCommand extends SubCommand {
 
     @Override
     public String getSyntax() {
-        return "/custommotd reload";
+        return "usage: /custommotd reload";
     }
 
     @Override
     public void onCommand(CommandSender sender, String[] args) {
         Config.init();
-        CustomMOTD.getInstance().getMotdManager().loadMotds();
+        CustomMOTD.getMotdManager().loadMotds();
+        Component message = Util.parseMiniMessage(Config.CommandReload, null);
+        sender.sendMessage(message);
     }
 
 }

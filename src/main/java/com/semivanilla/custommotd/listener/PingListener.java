@@ -10,11 +10,9 @@ import org.bukkit.event.server.ServerListPingEvent;
 
 public class PingListener implements Listener {
 
-    public CustomMOTD instance = CustomMOTD.getInstance();
-
     @EventHandler
     public void onPing(ServerListPingEvent event) {
-        MOTDWrapper wrapper = instance.getMotdManager().getActiveMOTD();
+        MOTDWrapper wrapper = CustomMOTD.getMotdManager().getActiveMOTD();
         if (wrapper != null) {
             MiniMessage miniMessage = MiniMessage.miniMessage();
             Component motd = miniMessage.parse(wrapper.getLine1())

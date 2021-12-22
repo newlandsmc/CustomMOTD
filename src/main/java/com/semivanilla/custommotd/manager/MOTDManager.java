@@ -1,6 +1,7 @@
 package com.semivanilla.custommotd.manager;
 
 import com.semivanilla.custommotd.CustomMOTD;
+import com.semivanilla.custommotd.config.Config;
 import com.semivanilla.custommotd.config.MOTDConfig;
 import com.semivanilla.custommotd.manager.wrapper.MOTDWrapper;
 
@@ -12,13 +13,13 @@ import java.util.TreeMap;
 
 public class MOTDManager {
 
-    public CustomMOTD instance;
 
     private final List<MOTDWrapper> motds = new ArrayList<>();
     private MOTDWrapper activeMOTD;
+    private boolean enableCounter = false;
 
     public MOTDManager() {
-        instance = CustomMOTD.getInstance();
+
     }
 
     public void loadMotds() {
@@ -42,7 +43,11 @@ public class MOTDManager {
             MOTDConfig motdConfig = entry.getValue();
             addMotd(new MOTDWrapper(motdConfig));
         }
-
+        getActiveMOTD();
+        enableCounter = getMOTD(Config.counterMOTD) != null;
+        if(!enableCounter) {
+            CustomMOTD.getInstance().getLogger().severe("motd counter disabled because motd for " + Config.counterMOTD + " was not found.");
+        }
     }
 
     public void unloadMotds() {
@@ -55,7 +60,6 @@ public class MOTDManager {
 
     public void saveMotds() {
         getMotds().forEach(MOTDWrapper::save);
-        unloadMotds();
     }
 
     public List<MOTDWrapper> getMotds() {
@@ -63,6 +67,7 @@ public class MOTDManager {
     }
 
     public MOTDWrapper getActiveMOTD() {
+        if (enableCounter && Config.counter != 0) return getMOTD(Config.counterMOTD);
         if (activeMOTD == null) {
             getMotds().stream()
                     .filter(MOTDWrapper::isActive)
@@ -70,6 +75,34 @@ public class MOTDManager {
                     .ifPresent(wrapper -> activeMOTD = wrapper);
         }
         return activeMOTD;
+    }
+
+    public MOTDWrapper getMOTD(String title) {
+        return getMotds().stream()
+                .filter(motdWrapper -> motdWrapper.getTitle().equalsIgnoreCase(title))
+                .distinct().findFirst().orElse(null);
+    }
+
+    public void activateMOTD(MOTDWrapper motd) {
+        if (motd == null && activeMOTD != null) {
+            activeMOTD.setActive(false);
+            activeMOTD = null;
+            saveMotds();
+        } else if (motd != null) {
+            if(activeMOTD != null)
+                activeMOTD.setActive(false);
+            motd.setActive(true);
+            activeMOTD = motd;
+            saveMotds();
+        }
+    }
+
+    public void changeCounter(int count) {
+        int counter = Config.counter;
+        counter += count;
+        if (counter < 0) counter = 0;
+//        if (counter > 0) activateMOTD(getMOTD(Config.counterMOTD));
+        if (Config.counter != counter) Config.setCounter(counter);
     }
 
 }
