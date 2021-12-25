@@ -16,6 +16,6 @@ public class Line2Prompt extends StringPrompt {
     @Override
     public @Nullable Prompt acceptInput(@NotNull ConversationContext context, @Nullable String input) {
         context.setSessionData("line2", input);
-        return new CompletePrompt();
+        return new RestrictedPrompt();
     }
 }

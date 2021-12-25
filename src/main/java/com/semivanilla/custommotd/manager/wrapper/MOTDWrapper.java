@@ -8,6 +8,7 @@ public class MOTDWrapper {
     private String line1;
     private String line2;
     private final boolean restricted;
+    private Integer weight;
     private boolean active;
 
     private final MOTDConfig config;
@@ -19,16 +20,18 @@ public class MOTDWrapper {
         this.line2 = motdConfig.getLine2();
         this.restricted = motdConfig.isRestricted();
         this.active = motdConfig.isActive();
+        this.weight = motdConfig.getWeight();
         this.config = motdConfig;
     }
 
-    public MOTDWrapper(String Title, String Line1, String Line2, boolean restricted, boolean Active) {
+    public MOTDWrapper(String Title, String Line1, String Line2, boolean restricted, boolean Active, int weight) {
         this.title = Title;
         this.line1 = Line1;
         this.line2 = Line2;
         this.restricted = restricted;
         this.active = Active;
         this.config = MOTDConfig.getConfig(title);
+        this.weight = weight;
         config.setLine1(line1);
         config.setLine2(line2);
         config.setActive(active);
@@ -70,12 +73,17 @@ public class MOTDWrapper {
         dirty = true;
     }
 
+    public Integer getWeight() {
+        return weight;
+    }
+
     public void save() {
         if (dirty) {
             config.setLine1(line1);
             config.setLine2(line2);
             config.setActive(active);
             config.setRestricted(restricted);
+            config.setWeight(weight);
             config.save();
             dirty = false;
         }

@@ -6,16 +6,14 @@ import com.semivanilla.custommotd.config.MOTDConfig;
 import com.semivanilla.custommotd.manager.wrapper.MOTDWrapper;
 
 import java.io.File;
-import java.util.ArrayList;
-import java.util.List;
-import java.util.Map;
-import java.util.TreeMap;
+import java.util.*;
 
 public class MOTDManager {
 
 
     private final List<MOTDWrapper> motds = new ArrayList<>();
     private MOTDWrapper activeMOTD;
+    private MOTDWrapper counterMOTD;
     private boolean enableCounter = false;
 
     public MOTDManager() {
@@ -44,6 +42,7 @@ public class MOTDManager {
             addMotd(new MOTDWrapper(motdConfig));
         }
         getActiveMOTD();
+        updateCounterMOTD();
         enableCounter = getMOTD(Config.counterMOTD) != null;
         if(!enableCounter) {
             CustomMOTD.getInstance().getLogger().severe("motd counter disabled because motd for " + Config.counterMOTD + " was not found.");
@@ -67,7 +66,7 @@ public class MOTDManager {
     }
 
     public MOTDWrapper getActiveMOTD() {
-        if (enableCounter && Config.counter != 0) return getMOTD(Config.counterMOTD);
+        if (enableCounter && Config.counter != 0) return counterMOTD;
         if (activeMOTD == null) {
             getMotds().stream()
                     .filter(MOTDWrapper::isActive)
@@ -103,6 +102,13 @@ public class MOTDManager {
         if (counter < 0) counter = 0;
 //        if (counter > 0) activateMOTD(getMOTD(Config.counterMOTD));
         if (Config.counter != counter) Config.setCounter(counter);
+        updateCounterMOTD();
+    }
+
+    public void updateCounterMOTD() {
+        counterMOTD =  getMotds().stream()
+                .filter(MOTDWrapper::isRestricted)
+                .max(Comparator.comparing(MOTDWrapper::getWeight)).orElse(activeMOTD);
     }
 
 }

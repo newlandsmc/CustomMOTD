@@ -100,4 +100,12 @@ public class MOTDConfig extends YamlConfiguration {
     public void setActive(boolean active) {
         set("active", active);
     }
+
+    public Integer getWeight() {
+        return getInt("weight", 0);
+    }
+
+    public void setWeight(int weight) {
+        set("weight", weight);
+    }
 }

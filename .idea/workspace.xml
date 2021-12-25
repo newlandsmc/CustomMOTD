@@ -5,29 +5,12 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="784893cc-7587-41a7-bb57-f91d267968c1" name="Changes" comment="">
-      <change afterPath="$PROJECT_DIR$/.github/workflows/build.yml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/com/semivanilla/custommotd/commands/subcommands/CounterSubCommand.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/com/semivanilla/custommotd/conversation/ConversationManager.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/com/semivanilla/custommotd/conversation/prompt/CompletePrompt.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/com/semivanilla/custommotd/conversation/prompt/Line1Prompt.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/com/semivanilla/custommotd/conversation/prompt/Line2Prompt.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/com/semivanilla/custommotd/conversation/prompt/TitlePrompt.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/com/semivanilla/custommotd/util/Util.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.gitignore" beforeDir="false" afterPath="$PROJECT_DIR$/.gitignore" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/com/semivanilla/custommotd/conversation/prompt/RestrictedPrompt.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/com/semivanilla/custommotd/conversation/prompt/WeightPrompt.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/semivanilla/custommotd/CustomMOTD.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/semivanilla/custommotd/CustomMOTD.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/semivanilla/custommotd/commands/MOTDCommand.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/semivanilla/custommotd/commands/MOTDCommand.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/semivanilla/custommotd/commands/SubCommand.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/semivanilla/custommotd/commands/SubCommand.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/semivanilla/custommotd/commands/subcommands/ApplySubCommand.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/semivanilla/custommotd/commands/subcommands/ApplySubCommand.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/semivanilla/custommotd/commands/subcommands/CheckSubCommand.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/semivanilla/custommotd/commands/subcommands/CheckSubCommand.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/semivanilla/custommotd/commands/subcommands/CreateSubCommand.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/semivanilla/custommotd/commands/subcommands/CreateSubCommand.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/semivanilla/custommotd/commands/subcommands/DefaultSubCommand.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/semivanilla/custommotd/commands/subcommands/DefaultSubCommand.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/semivanilla/custommotd/commands/subcommands/HelpSubCommand.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/semivanilla/custommotd/commands/subcommands/HelpSubCommand.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/semivanilla/custommotd/commands/subcommands/ListSubCommand.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/semivanilla/custommotd/commands/subcommands/ListSubCommand.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/semivanilla/custommotd/commands/subcommands/ReloadSubCommand.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/semivanilla/custommotd/commands/subcommands/ReloadSubCommand.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/semivanilla/custommotd/config/Config.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/semivanilla/custommotd/config/Config.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/com/semivanilla/custommotd/config/MOTDConfig.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/semivanilla/custommotd/config/MOTDConfig.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/semivanilla/custommotd/listener/PingListener.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/semivanilla/custommotd/listener/PingListener.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/semivanilla/custommotd/conversation/prompt/CompletePrompt.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/semivanilla/custommotd/conversation/prompt/CompletePrompt.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/semivanilla/custommotd/conversation/prompt/Line2Prompt.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/semivanilla/custommotd/conversation/prompt/Line2Prompt.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/com/semivanilla/custommotd/manager/MOTDManager.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/semivanilla/custommotd/manager/MOTDManager.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/com/semivanilla/custommotd/manager/wrapper/MOTDWrapper.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/semivanilla/custommotd/manager/wrapper/MOTDWrapper.java" afterDir="false" />
     </list>
@@ -69,7 +52,12 @@
                 <item name="" type="6a2764b6:ExternalProjectsStructure$RootNode" />
                 <item name="CustomMOTD" type="f1a62948:ProjectNode" />
                 <item name="Tasks" type="e4a08cd1:TasksNode" />
-                <item name="run paper" type="c8890929:TasksNode$1" />
+                <item name="build" type="c8890929:TasksNode$1" />
+              </path>
+              <path>
+                <item name="" type="6a2764b6:ExternalProjectsStructure$RootNode" />
+                <item name="CustomMOTD" type="f1a62948:ProjectNode" />
+                <item name="Run Configurations" type="7b0102dc:RunConfigurationsNode" />
               </path>
             </expand>
             <select />
@@ -99,7 +87,7 @@
   <component name="PropertiesComponent">
     <property name="RunOnceActivity.OpenProjectViewOnStart" value="true" />
     <property name="RunOnceActivity.ShowReadmeOnStart" value="true" />
-    <property name="last_opened_file_path" value="$PROJECT_DIR$/run/plugins/CustomMOTD/motd" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$/../GameruleManager" />
     <property name="project.structure.last.edited" value="Project" />
     <property name="project.structure.proportion" value="0.15" />
     <property name="project.structure.side.proportion" value="0.2" />
@@ -120,7 +108,28 @@
       <recent name="com.semivanilla.custommotd.config" />
     </key>
   </component>
-  <component name="RunManager" selected="Gradle.CustomMOTD [runServer]">
+  <component name="RunManager" selected="Gradle.CustomMOTD [build]">
+    <configuration name="CustomMOTD [build]" type="GradleRunConfiguration" factoryName="Gradle" temporary="true">
+      <ExternalSystemSettings>
+        <option name="executionName" />
+        <option name="externalProjectPath" value="$PROJECT_DIR$" />
+        <option name="externalSystemIdString" value="GRADLE" />
+        <option name="scriptParameters" />
+        <option name="taskDescriptions">
+          <list />
+        </option>
+        <option name="taskNames">
+          <list>
+            <option value="build" />
+          </list>
+        </option>
+        <option name="vmOptions" />
+      </ExternalSystemSettings>
+      <ExternalSystemDebugServerProcess>true</ExternalSystemDebugServerProcess>
+      <ExternalSystemReattachDebugProcess>true</ExternalSystemReattachDebugProcess>
+      <DebugAllEnabled>false</DebugAllEnabled>
+      <method v="2" />
+    </configuration>
     <configuration name="CustomMOTD [runServer]" type="GradleRunConfiguration" factoryName="Gradle" temporary="true">
       <ExternalSystemSettings>
         <option name="executionName" />
@@ -186,6 +195,7 @@
     </configuration>
     <recent_temporary>
       <list>
+        <item itemvalue="Gradle.CustomMOTD [build]" />
         <item itemvalue="Gradle.CustomMOTD [runServer]" />
         <item itemvalue="Gradle.untitled [build]" />
         <item itemvalue="Gradle.untitled [runServer]" />
