@@ -132,10 +132,10 @@ public class Config {
 
     // TODO move these into counter.yml
     public static int counter = 0;
-    public static String counterMOTD = "mcmmo";
+    public static boolean enableCounter = true;
     private static void motdSettings() {
+        enableCounter = getBoolean("counter.enabled", enableCounter);
         counter = getInt("counter.count", counter);
-        counterMOTD = getString("counter.motd", counterMOTD);
     }
 
     public static void setCounter(int count) {

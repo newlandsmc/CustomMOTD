@@ -18,7 +18,7 @@ public class CompletePrompt implements Prompt {
         String line2 = (String) context.getSessionData( "line2" );
         Boolean restricted = (Boolean) context.getSessionData("restricted");
         Integer weight = (Integer) context.getSessionData("weight");
-        MOTDWrapper motdWrapper = new MOTDWrapper(title, line1, line2, false, false, weight);
+        MOTDWrapper motdWrapper = new MOTDWrapper(title, line1, line2, restricted, false, weight);
         CustomMOTD.getMotdManager().addMotd(motdWrapper);
         return "New motd created.";
     }

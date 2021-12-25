@@ -14,7 +14,6 @@ public class MOTDManager {
     private final List<MOTDWrapper> motds = new ArrayList<>();
     private MOTDWrapper activeMOTD;
     private MOTDWrapper counterMOTD;
-    private boolean enableCounter = false;
 
     public MOTDManager() {
 
@@ -43,10 +42,6 @@ public class MOTDManager {
         }
         getActiveMOTD();
         updateCounterMOTD();
-        enableCounter = getMOTD(Config.counterMOTD) != null;
-        if(!enableCounter) {
-            CustomMOTD.getInstance().getLogger().severe("motd counter disabled because motd for " + Config.counterMOTD + " was not found.");
-        }
     }
 
     public void unloadMotds() {
@@ -66,7 +61,7 @@ public class MOTDManager {
     }
 
     public MOTDWrapper getActiveMOTD() {
-        if (enableCounter && Config.counter != 0) return counterMOTD;
+        if (Config.enableCounter && Config.counter != 0) return counterMOTD;
         if (activeMOTD == null) {
             getMotds().stream()
                     .filter(MOTDWrapper::isActive)

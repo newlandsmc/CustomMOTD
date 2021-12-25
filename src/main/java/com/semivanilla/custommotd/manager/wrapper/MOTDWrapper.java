@@ -32,10 +32,8 @@ public class MOTDWrapper {
         this.active = Active;
         this.config = MOTDConfig.getConfig(title);
         this.weight = weight;
-        config.setLine1(line1);
-        config.setLine2(line2);
-        config.setActive(active);
-        config.save();
+        this.dirty = true;
+        save();
     }
 
     public String getTitle() {
