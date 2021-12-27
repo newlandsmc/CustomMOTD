@@ -101,14 +101,6 @@ public class MOTDConfig extends YamlConfiguration {
         set("active", active);
     }
 
-    public Integer getWeight() {
-        return getInt("weight", 0);
-    }
-
-    public void setWeight(int weight) {
-        set("weight", weight);
-    }
-
     public Integer getCounter() {
         return getInt("counter",0);
     }

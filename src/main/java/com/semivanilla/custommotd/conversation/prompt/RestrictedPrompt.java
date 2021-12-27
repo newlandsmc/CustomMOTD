@@ -11,11 +11,7 @@ public class RestrictedPrompt extends BooleanPrompt {
     @Override
     protected @Nullable Prompt acceptValidatedInput(@NotNull ConversationContext context, boolean input) {
         context.setSessionData("restricted", input);
-        if (!input) {
-            context.setSessionData("weight", 0);
-            return new CompletePrompt();
-        }
-        return new WeightPrompt();
+        return new CompletePrompt();
     }
 
     @Override

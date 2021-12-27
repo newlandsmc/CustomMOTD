@@ -6,11 +6,8 @@
   <component name="ChangeListManager">
     <list default="true" id="784893cc-7587-41a7-bb57-f91d267968c1" name="Changes" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/semivanilla/custommotd/commands/subcommands/CounterSubCommand.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/semivanilla/custommotd/commands/subcommands/CounterSubCommand.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/semivanilla/custommotd/config/Config.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/semivanilla/custommotd/config/Config.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/semivanilla/custommotd/config/MOTDConfig.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/semivanilla/custommotd/config/MOTDConfig.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/semivanilla/custommotd/manager/MOTDManager.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/semivanilla/custommotd/manager/MOTDManager.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/semivanilla/custommotd/manager/wrapper/MOTDWrapper.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/semivanilla/custommotd/manager/wrapper/MOTDWrapper.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/semivanilla/custommotd/conversation/prompt/RestrictedPrompt.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/semivanilla/custommotd/conversation/prompt/RestrictedPrompt.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/semivanilla/custommotd/conversation/prompt/WeightPrompt.java" beforeDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -199,8 +196,8 @@
     </configuration>
     <recent_temporary>
       <list>
-        <item itemvalue="Gradle.CustomMOTD [runServer]" />
         <item itemvalue="Gradle.CustomMOTD [build]" />
+        <item itemvalue="Gradle.CustomMOTD [runServer]" />
         <item itemvalue="Gradle.untitled [build]" />
         <item itemvalue="Gradle.untitled [runServer]" />
       </list>
