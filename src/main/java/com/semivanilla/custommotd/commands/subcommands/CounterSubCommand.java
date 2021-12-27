@@ -5,6 +5,8 @@ import com.semivanilla.custommotd.commands.SubCommand;
 import com.semivanilla.custommotd.manager.wrapper.MOTDWrapper;
 import org.bukkit.command.CommandSender;
 
+import java.util.Arrays;
+
 public class CounterSubCommand extends SubCommand {
 
     @Override
@@ -34,13 +36,21 @@ public class CounterSubCommand extends SubCommand {
             return;
         }
         String option = args[0];
+        String motd =  String.join(" ", Arrays.copyOfRange(args,1, args.length));
+        MOTDWrapper wrapper = CustomMOTD.getMotdManager().getMOTD(motd);
+        if (wrapper == null) {
+            sender.sendMessage("There's no motd by this name. " + motd);
+            return;
+        }
         switch (option.toLowerCase()) {
-            case "increase":
-                CustomMOTD.getMotdManager().changeCounter(+1);
-                break;
-            case "decrease":
-                CustomMOTD.getMotdManager().changeCounter(-1);
-                break;
+            case "increase", "up" -> {
+                wrapper.changeCounter(+1);
+                CustomMOTD.getMotdManager().updateCounterMOTD();
+            }
+            case "decrease", "down" -> {
+                wrapper.changeCounter(-1);
+                CustomMOTD.getMotdManager().updateCounterMOTD();
+            }
         }
     }
 

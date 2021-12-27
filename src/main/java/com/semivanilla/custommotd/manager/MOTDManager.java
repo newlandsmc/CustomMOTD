@@ -7,6 +7,7 @@ import com.semivanilla.custommotd.manager.wrapper.MOTDWrapper;
 
 import java.io.File;
 import java.util.*;
+import java.util.stream.Collectors;
 
 public class MOTDManager {
 
@@ -61,7 +62,7 @@ public class MOTDManager {
     }
 
     public MOTDWrapper getActiveMOTD() {
-        if (Config.enableCounter && Config.counter != 0) return counterMOTD;
+        if (Config.enableCounter && counterMOTD != null) return counterMOTD;
         if (activeMOTD == null) {
             getMotds().stream()
                     .filter(MOTDWrapper::isActive)
@@ -91,19 +92,23 @@ public class MOTDManager {
         }
     }
 
-    public void changeCounter(int count) {
-        int counter = Config.counter;
-        counter += count;
-        if (counter < 0) counter = 0;
+//    public void changeCounter(int count) {
+//        int counter = Config.counter;
+//        counter += count;
+//        if (counter < 0) counter = 0;
 //        if (counter > 0) activateMOTD(getMOTD(Config.counterMOTD));
-        if (Config.counter != counter) Config.setCounter(counter);
-        updateCounterMOTD();
-    }
+//        if (Config.counter != counter) Config.setCounter(counter);
+//        updateCounterMOTD();
+//    }
 
     public void updateCounterMOTD() {
-        counterMOTD =  getMotds().stream()
+        List<MOTDWrapper> countermotds = getMotds().stream()
                 .filter(MOTDWrapper::isRestricted)
-                .max(Comparator.comparing(MOTDWrapper::getWeight)).orElse(activeMOTD);
+                .filter(motdWrapper -> motdWrapper.getCounter() > 0)
+                .toList();
+        if (countermotds.isEmpty()) counterMOTD = null;
+        if (countermotds.size() > 1) counterMOTD = getMOTD(Config.counterMOTD);
+        if (countermotds.size() == 1) counterMOTD = countermotds.get(0);
     }
 
 }

@@ -1,5 +1,6 @@
 package com.semivanilla.custommotd.manager.wrapper;
 
+import com.semivanilla.custommotd.config.Config;
 import com.semivanilla.custommotd.config.MOTDConfig;
 
 public class MOTDWrapper {
@@ -10,6 +11,7 @@ public class MOTDWrapper {
     private final boolean restricted;
     private Integer weight;
     private boolean active;
+    private Integer counter;
 
     private final MOTDConfig config;
     private boolean dirty = false;
@@ -21,6 +23,7 @@ public class MOTDWrapper {
         this.restricted = motdConfig.isRestricted();
         this.active = motdConfig.isActive();
         this.weight = motdConfig.getWeight();
+        this.counter = motdConfig.getCounter();
         this.config = motdConfig;
     }
 
@@ -33,6 +36,7 @@ public class MOTDWrapper {
         this.config = MOTDConfig.getConfig(title);
         this.weight = weight;
         this.dirty = true;
+        this.counter = 0;
         save();
     }
 
@@ -75,6 +79,16 @@ public class MOTDWrapper {
         return weight;
     }
 
+    public Integer getCounter() {
+        return counter;
+    }
+
+    public void changeCounter(Integer count) {
+        counter += count;
+        if (counter < 0) counter = 0;
+        dirty = true;
+    }
+
     public void save() {
         if (dirty) {
             config.setLine1(line1);
@@ -82,6 +96,7 @@ public class MOTDWrapper {
             config.setActive(active);
             config.setRestricted(restricted);
             config.setWeight(weight);
+            config.setCounter(counter);
             config.save();
             dirty = false;
         }

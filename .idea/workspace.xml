@@ -6,9 +6,9 @@
   <component name="ChangeListManager">
     <list default="true" id="784893cc-7587-41a7-bb57-f91d267968c1" name="Changes" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/build.gradle.kts" beforeDir="false" afterPath="$PROJECT_DIR$/build.gradle.kts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/semivanilla/custommotd/commands/subcommands/CounterSubCommand.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/semivanilla/custommotd/commands/subcommands/CounterSubCommand.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/com/semivanilla/custommotd/config/Config.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/semivanilla/custommotd/config/Config.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/semivanilla/custommotd/conversation/prompt/CompletePrompt.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/semivanilla/custommotd/conversation/prompt/CompletePrompt.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/semivanilla/custommotd/config/MOTDConfig.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/semivanilla/custommotd/config/MOTDConfig.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/com/semivanilla/custommotd/manager/MOTDManager.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/semivanilla/custommotd/manager/MOTDManager.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/com/semivanilla/custommotd/manager/wrapper/MOTDWrapper.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/semivanilla/custommotd/manager/wrapper/MOTDWrapper.java" afterDir="false" />
     </list>

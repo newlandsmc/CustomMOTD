@@ -130,19 +130,11 @@ public class Config {
         CommandCheck = getString("messages.command.command-check", CommandCheck);
     }
 
-    // TODO move these into counter.yml
-    public static int counter = 0;
+    public static String counterMOTD = "multiplenonzeromcmmo";
     public static boolean enableCounter = true;
     private static void motdSettings() {
         enableCounter = getBoolean("counter.enabled", enableCounter);
-        counter = getInt("counter.count", counter);
+        counterMOTD = getString("counter.counter-motd", counterMOTD);
     }
-
-    public static void setCounter(int count) {
-        counter = count;
-        set("counter.count", counter);
-        saveConfig();
-    }
-    // EO TODO
 
 }

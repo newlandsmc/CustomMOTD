@@ -108,4 +108,12 @@ public class MOTDConfig extends YamlConfiguration {
     public void setWeight(int weight) {
         set("weight", weight);
     }
+
+    public Integer getCounter() {
+        return getInt("counter",0);
+    }
+
+    public void setCounter(int counter) {
+        set("counter", counter);
+    }
 }
