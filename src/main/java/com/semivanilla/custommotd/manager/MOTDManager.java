@@ -12,7 +12,7 @@ import java.util.stream.Collectors;
 public class MOTDManager {
 
 
-    private final List<MOTDWrapper> motds = new ArrayList<>();
+    private List<MOTDWrapper> motds = new ArrayList<>();
     private MOTDWrapper activeMOTD;
     private MOTDWrapper counterMOTD;
 
@@ -46,7 +46,16 @@ public class MOTDManager {
     }
 
     public void unloadMotds() {
-        getMotds().clear();
+        activeMOTD = null;
+        counterMOTD = null;
+        motds.clear();
+        MOTDConfig.clearConfigs();
+    }
+
+    public void resetMotds() {
+        // clear all counters, set all custommotd active = false and switch to vanilla motd
+        activeMOTD = null;
+        counterMOTD = null;
     }
 
     public void addMotd(MOTDWrapper wrapper) {

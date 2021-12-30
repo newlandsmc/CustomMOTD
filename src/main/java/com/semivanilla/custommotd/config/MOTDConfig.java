@@ -57,6 +57,10 @@ public class MOTDConfig extends YamlConfiguration {
         }
     }
 
+    public static void clearConfigs() {
+        configs.clear();
+    }
+
     public void delete() {
         synchronized (saveLock) {
             if (!file.delete()) {

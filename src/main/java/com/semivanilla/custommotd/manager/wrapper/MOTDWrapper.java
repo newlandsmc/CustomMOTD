@@ -1,5 +1,6 @@
 package com.semivanilla.custommotd.manager.wrapper;
 
+import com.semivanilla.custommotd.CustomMOTD;
 import com.semivanilla.custommotd.config.Config;
 import com.semivanilla.custommotd.config.MOTDConfig;
 
@@ -95,7 +96,7 @@ public class MOTDWrapper {
     }
 
     public String toString() {
-        return "Title: " + this.getTitle() + "\n" + "Line1: " + this.getLine1() + "\n" + "Line2: " + this.getLine2() + "\n" + "Active: " + this.isActive();
+        return "Title: " + this.getTitle() + "\n" + "Line1: " + this.getLine1() + "\n" + "Line2: " + this.getLine2() + "\n" + "Active: " + this.isActive() + "\n" + "Counter: " + this.getCounter();
     }
 
 }
