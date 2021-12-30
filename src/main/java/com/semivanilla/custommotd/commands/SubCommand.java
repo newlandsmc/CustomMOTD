@@ -1,11 +1,9 @@
 package com.semivanilla.custommotd.commands;
 
-import java.util.ArrayList;
-import java.util.HashMap;
-import java.util.List;
-
 import com.semivanilla.custommotd.commands.subcommands.*;
 import org.bukkit.command.CommandSender;
+
+import java.util.HashMap;
 
 public abstract class SubCommand {
 
@@ -25,6 +23,7 @@ public abstract class SubCommand {
                 new HelpSubCommand(),
                 new ApplySubCommand(), new CheckSubCommand(), new CreateSubCommand(),
                 new DefaultSubCommand(), new ListSubCommand(), new CounterSubCommand(),
+                new ResetSubCommand(),
                 new ReloadSubCommand());
     }
 

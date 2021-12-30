@@ -48,14 +48,18 @@ public class MOTDManager {
     public void unloadMotds() {
         activeMOTD = null;
         counterMOTD = null;
-        motds.clear();
+        getMotds().clear();
         MOTDConfig.clearConfigs();
     }
 
     public void resetMotds() {
-        // clear all counters, set all custommotd active = false and switch to vanilla motd
         activeMOTD = null;
         counterMOTD = null;
+        getMotds().forEach(motdWrapper -> {
+            if (motdWrapper.isActive()) motdWrapper.setActive(false);
+            if (motdWrapper.getCounter() > 0) motdWrapper.resetCounter();
+            motdWrapper.save();
+        });
     }
 
     public void addMotd(MOTDWrapper wrapper) {

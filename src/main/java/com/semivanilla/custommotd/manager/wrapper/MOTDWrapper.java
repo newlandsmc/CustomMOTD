@@ -77,6 +77,11 @@ public class MOTDWrapper {
         return counter;
     }
 
+    public void resetCounter() {
+        counter = 0;
+        dirty = true;
+    }
+
     public void changeCounter(Integer count) {
         counter += count;
         if (counter < 0) counter = 0;

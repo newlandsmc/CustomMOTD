@@ -5,8 +5,9 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="784893cc-7587-41a7-bb57-f91d267968c1" name="Changes" comment="">
+      <change afterPath="$PROJECT_DIR$/src/main/java/com/semivanilla/custommotd/commands/subcommands/ResetSubCommand.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/semivanilla/custommotd/config/MOTDConfig.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/semivanilla/custommotd/config/MOTDConfig.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/semivanilla/custommotd/commands/SubCommand.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/semivanilla/custommotd/commands/SubCommand.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/com/semivanilla/custommotd/manager/MOTDManager.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/semivanilla/custommotd/manager/MOTDManager.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/com/semivanilla/custommotd/manager/wrapper/MOTDWrapper.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/semivanilla/custommotd/manager/wrapper/MOTDWrapper.java" afterDir="false" />
     </list>
@@ -99,8 +100,8 @@
       <recent name="$PROJECT_DIR$/untitled/run/plugins/CustomMOTD/motd" />
     </key>
     <key name="CopyClassDialog.RECENTS_KEY">
-      <recent name="com.semivanilla.custommotd.conversation.prompt" />
       <recent name="com.semivanilla.custommotd.commands.subcommands" />
+      <recent name="com.semivanilla.custommotd.conversation.prompt" />
       <recent name="com.semivanilla.custommotd.config" />
     </key>
   </component>
