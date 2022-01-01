@@ -112,14 +112,14 @@ public class Config {
     }
 
     /** ONLY EDIT BELOW THIS LINE **/
-    public static String MOTDSet = "Custom MOTD has been set to <motdname>";
+    public static String MOTDSet = "Custom MOTD has been set to <motd>";
     public static String MOTDSetFailed = "There is no motd by this name.";
     public static String MOTDSetRestricted = "You can't set this motd.";
     public static String MOTDSetDefault = "You set the motd to default.";
     public static String MOTDSetDefaultFailed = "Current motd is already default.";
     public static String counterIncreased = "Counter increased for <motd>";
     public static String counterDecreased = "Counter decreased for <motd>";
-    public static String currentMOTD = "Custom MOTD is <motdname>";
+    public static String currentMOTD = "Custom MOTD is <motd>";
     public static String MOTDReset = "All triggers that cause a custom motd to activate have been reset.";
     public static String NoPermission = "You need to have permission <permission> to run this command.";
     public static String CommandHelp = "Invalid usage please do /custommotd help for more info";

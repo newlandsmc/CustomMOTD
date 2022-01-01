@@ -60,7 +60,7 @@ public class ApplySubCommand extends SubCommand {
             return;
         }
         CustomMOTD.getMotdManager().activateMOTD(wrapper);
-        Util.sendMiniMessage(sender, Config.MOTDSet, List.of(Template.template("title", wrapper.getTitle())));
+        Util.sendMiniMessage(sender, Config.MOTDSet, List.of(Template.template("motd", wrapper.getTitle())));
     }
 
 }

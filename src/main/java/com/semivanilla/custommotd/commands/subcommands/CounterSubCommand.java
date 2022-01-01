@@ -50,12 +50,12 @@ public class CounterSubCommand extends SubCommand {
             case "increase", "up" -> {
                 wrapper.changeCounter(+1);
                 CustomMOTD.getMotdManager().updateCounterMOTD();
-                Util.sendMiniMessage(sender, Config.counterIncreased, List.of(Template.template("title", wrapper.getTitle())));
+                Util.sendMiniMessage(sender, Config.counterIncreased, List.of(Template.template("motd", wrapper.getTitle())));
             }
             case "decrease", "down" -> {
                 wrapper.changeCounter(-1);
                 CustomMOTD.getMotdManager().updateCounterMOTD();
-                Util.sendMiniMessage(sender, Config.counterDecreased, List.of(Template.template("title", wrapper.getTitle())));
+                Util.sendMiniMessage(sender, Config.counterDecreased, List.of(Template.template("motd", wrapper.getTitle())));
             }
         }
     }

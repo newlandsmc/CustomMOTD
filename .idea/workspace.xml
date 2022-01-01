@@ -6,7 +6,9 @@
   <component name="ChangeListManager">
     <list default="true" id="784893cc-7587-41a7-bb57-f91d267968c1" name="Changes" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/semivanilla/custommotd/manager/MOTDManager.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/semivanilla/custommotd/manager/MOTDManager.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/semivanilla/custommotd/commands/subcommands/ApplySubCommand.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/semivanilla/custommotd/commands/subcommands/ApplySubCommand.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/semivanilla/custommotd/commands/subcommands/CounterSubCommand.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/semivanilla/custommotd/commands/subcommands/CounterSubCommand.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/semivanilla/custommotd/config/Config.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/semivanilla/custommotd/config/Config.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
