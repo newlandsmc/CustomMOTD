@@ -42,8 +42,7 @@ public class ListSubCommand extends SubCommand {
         List<Template> templates = new ArrayList<>(List.of(
                 Template.template("list", String.join(", ", titles))
         ));
-        Component message = Util.parseMiniMessage(Config.CommandList, templates);
-        sender.sendMessage(message);
+        Util.sendMiniMessage(sender, Config.CommandList, templates);
     }
 
 }

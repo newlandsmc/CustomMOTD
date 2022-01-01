@@ -2,8 +2,13 @@ package com.semivanilla.custommotd.commands.subcommands;
 
 import com.semivanilla.custommotd.CustomMOTD;
 import com.semivanilla.custommotd.commands.SubCommand;
+import com.semivanilla.custommotd.config.Config;
 import com.semivanilla.custommotd.manager.wrapper.MOTDWrapper;
+import com.semivanilla.custommotd.util.Util;
+import net.kyori.adventure.text.minimessage.Template;
 import org.bukkit.command.CommandSender;
+
+import java.util.List;
 
 public class ApplySubCommand extends SubCommand {
 
@@ -37,24 +42,25 @@ public class ApplySubCommand extends SubCommand {
         if (motd.equalsIgnoreCase("default")) {
             MOTDWrapper wrapper = CustomMOTD.getMotdManager().getActiveMOTD();
             if (wrapper == null) {
-                sender.sendMessage("MOTD is already the default.");
+                Util.sendMiniMessage(sender, Config.MOTDSetDefaultFailed, null);
                 return;
             }
             CustomMOTD.getMotdManager().activateMOTD(null);
-            sender.sendMessage("MOTD is now the default.");
+            Util.sendMiniMessage(sender, Config.MOTDSetDefault, null);
             return;
         }
         MOTDWrapper wrapper = CustomMOTD.getMotdManager().getMOTD(motd);
         if (wrapper == null) {
-            sender.sendMessage("There's no motd by this name. " + motd);
+            Util.sendMiniMessage(sender, Config.MOTDSetFailed, null);
             return;
         }
+
         if (wrapper.isRestricted()) {
-            sender.sendMessage("You can not set this motd.");
+            Util.sendMiniMessage(sender, Config.MOTDSetRestricted, null);
             return;
         }
         CustomMOTD.getMotdManager().activateMOTD(wrapper);
-        sender.sendMessage("The new motd is " + wrapper.getTitle());
+        Util.sendMiniMessage(sender, Config.MOTDSet, List.of(Template.template("title", wrapper.getTitle())));
     }
 
 }

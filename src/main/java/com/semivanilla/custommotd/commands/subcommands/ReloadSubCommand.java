@@ -33,8 +33,7 @@ public class ReloadSubCommand extends SubCommand {
     public void onCommand(CommandSender sender, String[] args) {
         Config.init();
         CustomMOTD.getMotdManager().loadMotds();
-        Component message = Util.parseMiniMessage(Config.CommandReload, null);
-        sender.sendMessage(message);
+        Util.sendMiniMessage(sender, Config.CommandReload, null);
     }
 
 }

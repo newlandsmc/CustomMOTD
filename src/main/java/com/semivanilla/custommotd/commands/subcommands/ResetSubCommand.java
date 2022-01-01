@@ -2,7 +2,9 @@ package com.semivanilla.custommotd.commands.subcommands;
 
 import com.semivanilla.custommotd.CustomMOTD;
 import com.semivanilla.custommotd.commands.SubCommand;
+import com.semivanilla.custommotd.config.Config;
 import com.semivanilla.custommotd.manager.wrapper.MOTDWrapper;
+import com.semivanilla.custommotd.util.Util;
 import org.bukkit.command.CommandSender;
 
 public class ResetSubCommand extends SubCommand {
@@ -30,7 +32,7 @@ public class ResetSubCommand extends SubCommand {
     @Override
     public void onCommand(CommandSender sender, String[] args) {
         CustomMOTD.getMotdManager().resetMotds();
-        sender.sendMessage("All triggers that cause a custom motd to activate have been reset."); // TODO : Load from config
+        Util.sendMiniMessage(sender, Config.MOTDReset, null);
     }
 
 }

@@ -1,6 +1,8 @@
 package com.semivanilla.custommotd.commands;
 
 import com.semivanilla.custommotd.config.Config;
+import com.semivanilla.custommotd.util.Util;
+import net.kyori.adventure.text.minimessage.Template;
 import org.bukkit.command.Command;
 import org.bukkit.command.CommandExecutor;
 import org.bukkit.command.CommandSender;
@@ -24,7 +26,7 @@ public class MOTDCommand implements CommandExecutor, TabCompleter  {
     @Override
     public boolean onCommand(CommandSender sender, Command cmd, String label, String[] args) {
         if (args.length == 0) {
-            sender.sendMessage(Config.CommandHelp);
+            Util.sendMiniMessage(sender, Config.CommandHelp, null);
             return true;
         }
         String command = args[0];
@@ -32,14 +34,14 @@ public class MOTDCommand implements CommandExecutor, TabCompleter  {
             SubCommand subCommand = SubCommand.getCommands().get(command);
             if (subCommand.getPermission() != null) {
                 if (!sender.hasPermission(subCommand.getPermission())) {
-                    sender.sendMessage(Config.NoPermission);
+                    Util.sendMiniMessage(sender, Config.NoPermission, List.of(Template.template("permission", subCommand.getPermission())));
                     return true;
                 }
             }
             subCommand.onCommand(sender, Arrays.copyOfRange(args,1, args.length));
             return true;
         }
-        sender.sendMessage(Config.CommandHelp);
+        Util.sendMiniMessage(sender, Config.CommandHelp, null);
         return true;
     }
 

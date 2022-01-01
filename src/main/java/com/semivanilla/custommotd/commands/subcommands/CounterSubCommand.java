@@ -2,10 +2,14 @@ package com.semivanilla.custommotd.commands.subcommands;
 
 import com.semivanilla.custommotd.CustomMOTD;
 import com.semivanilla.custommotd.commands.SubCommand;
+import com.semivanilla.custommotd.config.Config;
 import com.semivanilla.custommotd.manager.wrapper.MOTDWrapper;
+import com.semivanilla.custommotd.util.Util;
+import net.kyori.adventure.text.minimessage.Template;
 import org.bukkit.command.CommandSender;
 
 import java.util.Arrays;
+import java.util.List;
 
 public class CounterSubCommand extends SubCommand {
 
@@ -39,17 +43,19 @@ public class CounterSubCommand extends SubCommand {
         String motd =  String.join(" ", Arrays.copyOfRange(args,1, args.length));
         MOTDWrapper wrapper = CustomMOTD.getMotdManager().getMOTD(motd);
         if (wrapper == null) {
-            sender.sendMessage("There's no motd by this name. " + motd);
+            Util.sendMiniMessage(sender, Config.MOTDSetFailed, null);
             return;
         }
         switch (option.toLowerCase()) {
             case "increase", "up" -> {
                 wrapper.changeCounter(+1);
                 CustomMOTD.getMotdManager().updateCounterMOTD();
+                Util.sendMiniMessage(sender, Config.counterIncreased, List.of(Template.template("title", wrapper.getTitle())));
             }
             case "decrease", "down" -> {
                 wrapper.changeCounter(-1);
                 CustomMOTD.getMotdManager().updateCounterMOTD();
+                Util.sendMiniMessage(sender, Config.counterDecreased, List.of(Template.template("title", wrapper.getTitle())));
             }
         }
     }

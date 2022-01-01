@@ -44,8 +44,7 @@ public class CheckSubCommand extends SubCommand {
         List<Template> templates = new ArrayList<>(List.of(
                 Template.template("motd", motd)
         ));
-        Component message = Util.parseMiniMessage(Config.CommandCheck, templates);
-        sender.sendMessage(message);
+        Util.sendMiniMessage(sender, Config.CommandCheck, templates);
     }
 
 }

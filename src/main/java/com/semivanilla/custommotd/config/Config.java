@@ -113,15 +113,29 @@ public class Config {
 
     /** ONLY EDIT BELOW THIS LINE **/
     public static String MOTDSet = "Custom MOTD has been set to <motdname>";
+    public static String MOTDSetFailed = "There is no motd by this name.";
+    public static String MOTDSetRestricted = "You can't set this motd.";
+    public static String MOTDSetDefault = "You set the motd to default.";
+    public static String MOTDSetDefaultFailed = "Current motd is already default.";
+    public static String counterIncreased = "Counter increased for <motd>";
+    public static String counterDecreased = "Counter decreased for <motd>";
     public static String currentMOTD = "Custom MOTD is <motdname>";
-    public static String NoPermission = "You don't have permission to run this command.";
-    public static String CommandHelp = "TODO";
+    public static String MOTDReset = "All triggers that cause a custom motd to activate have been reset.";
+    public static String NoPermission = "You need to have permission <permission> to run this command.";
+    public static String CommandHelp = "Invalid usage please do /custommotd help for more info";
     public static String CommandHelpList = "<command>: <usage> - <description>";
     public static String CommandList = "Available motd: <list>";
     public static String CommandReload = "Reloaded configuration.";
     public static String CommandCheck = "The current active motd is <motd>.";
     private static void messages() {
         MOTDSet = getString("messages.motd.set-motd", MOTDSet);
+        MOTDSetFailed = getString("messages.motd.not-a-motd", MOTDSetFailed);
+        MOTDSetRestricted = getString("messages.motd.set-motd-restricted", MOTDSetRestricted);
+        MOTDSetDefault = getString("messages.motd.set-motd-default", MOTDSetDefault);
+        MOTDSetDefaultFailed = getString("messages.motd.set-motd-default-failed", MOTDSetDefaultFailed);
+        counterIncreased = getString("messages.motd.counter-increased", counterIncreased);
+        counterDecreased = getString("messages.motd.counter-decreased", counterDecreased);
+        MOTDReset = getString("messages.motd.reset", MOTDReset);
         currentMOTD = getString("messages.motd.current-motd", currentMOTD);
         NoPermission = getString("messages.command.no-permission", NoPermission);
         CommandHelp = getString("messages.command.command-help", CommandHelp);
