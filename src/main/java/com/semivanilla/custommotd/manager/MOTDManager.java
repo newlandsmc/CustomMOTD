@@ -41,8 +41,8 @@ public class MOTDManager {
             MOTDConfig motdConfig = entry.getValue();
             addMotd(new MOTDWrapper(motdConfig));
         }
-        getActiveMOTD();
         updateCounterMOTD();
+        getActiveMOTD();
     }
 
     public void unloadMotds() {
@@ -75,13 +75,13 @@ public class MOTDManager {
     }
 
     public MOTDWrapper getActiveMOTD() {
-        if (Config.enableCounter && counterMOTD != null) return counterMOTD;
         if (activeMOTD == null) {
             getMotds().stream()
                     .filter(MOTDWrapper::isActive)
                     .findFirst()
                     .ifPresent(wrapper -> activeMOTD = wrapper);
         }
+        if (Config.enableCounter && counterMOTD != null && activeMOTD == null) return counterMOTD;
         return activeMOTD;
     }
 
@@ -104,15 +104,6 @@ public class MOTDManager {
             saveMotds();
         }
     }
-
-//    public void changeCounter(int count) {
-//        int counter = Config.counter;
-//        counter += count;
-//        if (counter < 0) counter = 0;
-//        if (counter > 0) activateMOTD(getMOTD(Config.counterMOTD));
-//        if (Config.counter != counter) Config.setCounter(counter);
-//        updateCounterMOTD();
-//    }
 
     public void updateCounterMOTD() {
         List<MOTDWrapper> countermotds = getMotds().stream()
