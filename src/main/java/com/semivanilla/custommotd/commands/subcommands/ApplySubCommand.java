@@ -34,6 +34,16 @@ public class ApplySubCommand extends SubCommand {
             return;
         }
         String motd = String.join(" ", args);
+        if (motd.equalsIgnoreCase("default")) {
+            MOTDWrapper wrapper = CustomMOTD.getMotdManager().getActiveMOTD();
+            if (wrapper == null) {
+                sender.sendMessage("MOTD is already the default.");
+                return;
+            }
+            CustomMOTD.getMotdManager().activateMOTD(null);
+            sender.sendMessage("MOTD is now the default.");
+            return;
+        }
         MOTDWrapper wrapper = CustomMOTD.getMotdManager().getMOTD(motd);
         if (wrapper == null) {
             sender.sendMessage("There's no motd by this name. " + motd);

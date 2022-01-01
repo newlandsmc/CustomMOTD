@@ -22,7 +22,7 @@ public abstract class SubCommand {
         loadCommand(
                 new HelpSubCommand(),
                 new ApplySubCommand(), new CheckSubCommand(), new CreateSubCommand(),
-                new DefaultSubCommand(), new ListSubCommand(), new CounterSubCommand(),
+                new ListSubCommand(), new CounterSubCommand(),
                 new ResetSubCommand(),
                 new ReloadSubCommand());
     }

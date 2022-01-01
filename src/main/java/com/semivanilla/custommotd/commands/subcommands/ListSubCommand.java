@@ -38,6 +38,7 @@ public class ListSubCommand extends SubCommand {
     @Override
     public void onCommand(CommandSender sender, String[] args) {
         List<String> titles = CustomMOTD.getMotdManager().getMotds().stream().filter(motdWrapper -> !motdWrapper.isRestricted()).map(MOTDWrapper::getTitle).collect(Collectors.toList());
+        titles.add("default");
         List<Template> templates = new ArrayList<>(List.of(
                 Template.template("list", String.join(", ", titles))
         ));
