@@ -1,4 +1,5 @@
 import com.github.jengelman.gradle.plugins.shadow.tasks.ConfigureShadowRelocation
+import java.io.ByteArrayOutputStream
 
 plugins {
     id("java")
@@ -12,7 +13,7 @@ version = "1.0.0-SNAPSHOT"
 description = "Plugin allows staff to easily manage the MOTD displayed for the server in users' server list."
 
 dependencies {
-    compileOnly("io.papermc.paper:paper-api:1.18.1-R0.1-SNAPSHOT") // Paper
+    compileOnly("com.alttd:Galaxy-API:1.18.1-R0.1-SNAPSHOT")
     shadow("net.kyori:adventure-text-minimessage:4.2.0-SNAPSHOT") { // Minimessage
         exclude("net.kyori", "adventure-api")
     }
@@ -47,6 +48,7 @@ tasks {
 bukkit {
     name = rootProject.name
     main = "$group.CustomMOTD"
+    version = "${rootProject.version}-${gitCommit()}"
     apiVersion = "1.18"
     website = "https://github.com/SemiVanilla-MC/CustomMOTD"
     authors = listOf("destro174")
@@ -57,4 +59,13 @@ bukkit {
             permission = "custommotd.command"
         }
     }
+}
+
+fun gitCommit(): String {
+    val os = ByteArrayOutputStream()
+    project.exec {
+        commandLine = "git rev-parse --short HEAD".split(" ")
+        standardOutput = os
+    }
+    return String(os.toByteArray()).trim()
 }
