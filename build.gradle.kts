@@ -13,7 +13,7 @@ version = "1.0.0-SNAPSHOT"
 description = "Plugin allows staff to easily manage the MOTD displayed for the server in users' server list."
 
 dependencies {
-    compileOnly("com.alttd:Galaxy-API:1.18.1-R0.1-SNAPSHOT")
+    compileOnly("io.papermc.paper:paper-api:1.18.1-R0.1-SNAPSHOT") // Paper
     shadow("net.kyori:adventure-text-minimessage:4.2.0-SNAPSHOT") { // Minimessage
         exclude("net.kyori", "adventure-api")
     }
