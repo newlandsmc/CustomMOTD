@@ -50,6 +50,12 @@ public class MOTDCommand implements CommandExecutor, TabCompleter  {
         List<String> completions = new ArrayList<>();
         if (args.length == 1) {
             StringUtil.copyPartialMatches(args[0], commands, completions);
+        } else if (args.length > 1) {
+            String command = args[0];
+            if (commands.contains(command)) {
+                SubCommand subCommand = SubCommand.getCommands().get(command);
+                StringUtil.copyPartialMatches(args[1], subCommand.getCompletions(), completions);
+            }
         }
         Collections.sort(completions);
         return completions;

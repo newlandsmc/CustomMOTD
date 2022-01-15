@@ -9,6 +9,7 @@ import net.kyori.adventure.text.minimessage.Template;
 import org.bukkit.command.CommandSender;
 
 import java.util.List;
+import java.util.stream.Collectors;
 
 public class ApplySubCommand extends SubCommand {
 
@@ -61,6 +62,11 @@ public class ApplySubCommand extends SubCommand {
         }
         CustomMOTD.getMotdManager().activateMOTD(wrapper);
         Util.sendMiniMessage(sender, Config.MOTDSet, List.of(Template.template("motd", wrapper.getTitle())));
+    }
+
+    @Override
+    public List<String> getCompletions() {
+        return CustomMOTD.getMotdManager().getMotds().stream().filter(motdWrapper -> !motdWrapper.isRestricted()).map(MOTDWrapper::getTitle).collect(Collectors.toList());
     }
 
 }

@@ -5,10 +5,11 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="784893cc-7587-41a7-bb57-f91d267968c1" name="Changes" comment="">
-      <change beforePath="$PROJECT_DIR$/.idea/misc.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/misc.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/build.gradle.kts" beforeDir="false" afterPath="$PROJECT_DIR$/build.gradle.kts" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/semivanilla/custommotd/listener/PingListener.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/semivanilla/custommotd/listener/PingListener.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/semivanilla/custommotd/commands/MOTDCommand.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/semivanilla/custommotd/commands/MOTDCommand.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/semivanilla/custommotd/commands/SubCommand.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/semivanilla/custommotd/commands/SubCommand.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/semivanilla/custommotd/commands/subcommands/ApplySubCommand.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/semivanilla/custommotd/commands/subcommands/ApplySubCommand.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/semivanilla/custommotd/commands/subcommands/CounterSubCommand.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/semivanilla/custommotd/commands/subcommands/CounterSubCommand.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -110,7 +111,7 @@
       <recent name="com.semivanilla.custommotd.config" />
     </key>
   </component>
-  <component name="RunManager" selected="Gradle.CustomMOTD [build]">
+  <component name="RunManager" selected="Gradle.CustomMOTD [runServer]">
     <configuration name="CustomMOTD [build]" type="GradleRunConfiguration" factoryName="Gradle" temporary="true">
       <ExternalSystemSettings>
         <option name="executionName" />
@@ -197,8 +198,8 @@
     </configuration>
     <recent_temporary>
       <list>
-        <item itemvalue="Gradle.CustomMOTD [build]" />
         <item itemvalue="Gradle.CustomMOTD [runServer]" />
+        <item itemvalue="Gradle.CustomMOTD [build]" />
         <item itemvalue="Gradle.untitled [build]" />
         <item itemvalue="Gradle.untitled [runServer]" />
       </list>

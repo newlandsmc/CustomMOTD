@@ -8,10 +8,14 @@ import com.semivanilla.custommotd.util.Util;
 import net.kyori.adventure.text.minimessage.Template;
 import org.bukkit.command.CommandSender;
 
+import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.List;
+import java.util.stream.Collectors;
 
 public class CounterSubCommand extends SubCommand {
+
+    private static final List<String> completions = Arrays.asList("increase", "decrease");
 
     @Override
     public String getSub() {
@@ -58,6 +62,11 @@ public class CounterSubCommand extends SubCommand {
                 Util.sendMiniMessage(sender, Config.counterDecreased, List.of(Template.template("motd", wrapper.getTitle())));
             }
         }
+    }
+
+    @Override
+    public List<String> getCompletions() {
+        return completions;
     }
 
 }
