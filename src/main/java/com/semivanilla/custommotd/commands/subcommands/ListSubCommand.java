@@ -42,7 +42,7 @@ public class ListSubCommand extends SubCommand {
         List<Template> templates = new ArrayList<>(List.of(
                 Template.template("list", String.join(", ", titles))
         ));
-        Util.sendMiniMessage(sender, Config.CommandList, templates);
+        Util.sendMiniMessage(sender, Config.commandList, templates);
     }
 
 }

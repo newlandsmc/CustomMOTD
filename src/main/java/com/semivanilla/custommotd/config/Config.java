@@ -23,7 +23,6 @@ public class Config {
     public static YamlConfiguration config;
 
     static int version;
-    static boolean verbose;
 
     public static void init() {
         CONFIG_PATH = CustomMOTD.getInstance().getDataFolder();
@@ -38,17 +37,11 @@ public class Config {
         }
         config.options().header(HEADER);
         config.options().copyDefaults(true);
-        verbose = getBoolean("verbose", false);
 
         version = getInt("config-version", 1);
+        set("config-version", 2);
 
         readConfig(Config.class, null);
-    }
-
-    protected static void log(String s) {
-        if (verbose) {
-            log(Level.INFO, s);
-        }
     }
 
     static void readConfig(Class<?> clazz, Object instance) {
@@ -121,12 +114,15 @@ public class Config {
     public static String counterDecreased = "Counter decreased for <motd>";
     public static String currentMOTD = "Custom MOTD is <motd>";
     public static String MOTDReset = "All triggers that cause a custom motd to activate have been reset.";
-    public static String NoPermission = "You need to have permission <permission> to run this command.";
-    public static String CommandHelp = "Invalid usage please do /custommotd help for more info";
-    public static String CommandHelpList = "<command>: <usage> - <description>";
-    public static String CommandList = "Available motd: <list>";
-    public static String CommandReload = "Reloaded configuration.";
-    public static String CommandCheck = "The current active motd is <motd>.";
+    public static String noPermission = "You need to have permission <permission> to run this command.";
+    public static String commandHelpHeader = "=====================================";
+    public static String commandHelpFooter = "=====================================";
+    public static String commandHelp = "Custommotd available commands.";
+    public static String commandUsage = "Invalid usage please do /custommotd help for more info";
+    public static String commandHelpList = "<command>: <usage> - <description>";
+    public static String commandList = "Available motd: <list>";
+    public static String commandReload = "Reloaded configuration.";
+    public static String commandCheck = "The current active motd is <motd>.";
     private static void messages() {
         MOTDSet = getString("messages.motd.set-motd", MOTDSet);
         MOTDSetFailed = getString("messages.motd.not-a-motd", MOTDSetFailed);
@@ -137,11 +133,18 @@ public class Config {
         counterDecreased = getString("messages.motd.counter-decreased", counterDecreased);
         MOTDReset = getString("messages.motd.reset", MOTDReset);
         currentMOTD = getString("messages.motd.current-motd", currentMOTD);
-        NoPermission = getString("messages.command.no-permission", NoPermission);
-        CommandHelp = getString("messages.command.command-help", CommandHelp);
-        CommandHelpList = getString("messages.command.command-help-list", CommandHelpList);
-        CommandList = getString("messages.command.command-list", CommandList);
-        CommandCheck = getString("messages.command.command-check", CommandCheck);
+        noPermission = getString("messages.command.no-permission", noPermission);
+        if (version == 1) {
+            commandUsage = getString("messages.command.command-help", commandUsage);
+            set("messages.command.command-help", null);
+        }
+        commandUsage = getString("messages.command.command-usage", commandUsage);
+        commandHelp = getString("messages.command.command-help", commandHelp);
+        commandHelpHeader = getString("messages.command.command-help-header", commandHelpHeader);
+        commandHelpFooter = getString("messages.command.command-help-footer", commandHelpFooter);
+        commandHelpList = getString("messages.command.command-help-list", commandHelpList);
+        commandList = getString("messages.command.command-list", commandList);
+        commandCheck = getString("messages.command.command-check", commandCheck);
     }
 
     public static String counterMOTD = "multiplenonzeromcmmo";

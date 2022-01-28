@@ -34,7 +34,8 @@ public class HelpSubCommand extends SubCommand {
 
     @Override
     public void onCommand(CommandSender sender, String[] args) {
-        final Component[] message = {Util.parseMiniMessage(Config.CommandHelp, null)};
+        final Component[] message = {Util.parseMiniMessage(Config.commandHelpHeader, null)};
+        message[0] = message[0].append(Component.newline()).append(Util.parseMiniMessage(Config.commandHelp, null));
         SubCommand.getCommands().forEach((sub, command) -> {
             if (command != null) {
                 if (sender.hasPermission(command.getPermission())) {
@@ -45,11 +46,12 @@ public class HelpSubCommand extends SubCommand {
                             Template.template("description", command.getDescription()),
                             Template.template("usage", command.getSyntax())
                     ));
-                    Component info = Util.parseMiniMessage(Config.CommandHelpList, templates);
+                    Component info = Util.parseMiniMessage(Config.commandHelpList, templates);
                     message[0] = message[0].append(info);
                 }
             }
         });
+        message[0] = message[0].append(Component.newline()).append(Util.parseMiniMessage(Config.commandHelpFooter, null));
         sender.sendMessage(message[0]);
     }
 
