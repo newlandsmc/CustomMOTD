@@ -3,6 +3,7 @@ package com.semivanilla.custommotd.commands.subcommands;
 import com.semivanilla.custommotd.CustomMOTD;
 import com.semivanilla.custommotd.commands.SubCommand;
 import com.semivanilla.custommotd.config.Config;
+import com.semivanilla.custommotd.manager.MOTDManager;
 import com.semivanilla.custommotd.manager.wrapper.MOTDWrapper;
 import com.semivanilla.custommotd.util.Util;
 import net.kyori.adventure.text.minimessage.Template;
@@ -39,18 +40,19 @@ public class ApplySubCommand extends SubCommand {
             sender.sendMessage(getSyntax());
             return;
         }
+        MOTDManager motdManager = CustomMOTD.getMotdManager();
         String motd = String.join(" ", args);
         if (motd.equalsIgnoreCase("default")) {
-            MOTDWrapper wrapper = CustomMOTD.getMotdManager().getActiveMOTD();
-            if (wrapper == null) {
+            MOTDWrapper wrapper = motdManager.getActiveMOTD();
+            if (motdManager.isDefaultMOTD(wrapper)) {
                 Util.sendMiniMessage(sender, Config.MOTDSetDefaultFailed, null);
                 return;
             }
-            CustomMOTD.getMotdManager().activateMOTD(null);
+            motdManager.activateDefaultMOTD();
             Util.sendMiniMessage(sender, Config.MOTDSetDefault, null);
             return;
         }
-        MOTDWrapper wrapper = CustomMOTD.getMotdManager().getMOTD(motd);
+        MOTDWrapper wrapper = motdManager.getMOTD(motd);
         if (wrapper == null) {
             Util.sendMiniMessage(sender, Config.MOTDSetFailed, null);
             return;
@@ -60,7 +62,7 @@ public class ApplySubCommand extends SubCommand {
             Util.sendMiniMessage(sender, Config.MOTDSetRestricted, null);
             return;
         }
-        CustomMOTD.getMotdManager().activateMOTD(wrapper);
+        motdManager.activateMOTD(wrapper);
         Util.sendMiniMessage(sender, Config.MOTDSet, List.of(Template.template("motd", wrapper.getTitle())));
     }
 

@@ -149,9 +149,11 @@ public class Config {
 
     public static String counterMOTD = "multiplenonzeromcmmo";
     public static boolean enableCounter = true;
+    public static String defaultMOTD = "";
     private static void motdSettings() {
         enableCounter = getBoolean("counter.enabled", enableCounter);
         counterMOTD = getString("counter.counter-motd", counterMOTD);
+        defaultMOTD = getString("default-motd", defaultMOTD);
     }
 
 }

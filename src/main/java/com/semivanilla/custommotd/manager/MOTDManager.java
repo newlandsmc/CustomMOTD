@@ -115,4 +115,15 @@ public class MOTDManager {
         if (countermotds.size() == 1) counterMOTD = countermotds.get(0);
     }
 
+    public boolean isDefaultMOTD(MOTDWrapper wrapper) {
+        if (wrapper == null) return true;
+        if (wrapper.getTitle().equalsIgnoreCase(Config.defaultMOTD)) return true;
+        return false;
+    }
+
+    public void activateDefaultMOTD() {
+        MOTDWrapper wrapper = getMOTD(Config.defaultMOTD);
+        activateMOTD(wrapper);
+    }
+
 }
