@@ -5,11 +5,10 @@ import com.semivanilla.custommotd.commands.SubCommand;
 import com.semivanilla.custommotd.config.Config;
 import com.semivanilla.custommotd.manager.wrapper.MOTDWrapper;
 import com.semivanilla.custommotd.util.Util;
-import net.kyori.adventure.text.Component;
-import net.kyori.adventure.text.minimessage.Template;
+import net.kyori.adventure.text.minimessage.tag.resolver.Placeholder;
+import net.kyori.adventure.text.minimessage.tag.resolver.TagResolver;
 import org.bukkit.command.CommandSender;
 
-import java.util.ArrayList;
 import java.util.List;
 import java.util.stream.Collectors;
 
@@ -39,9 +38,9 @@ public class ListSubCommand extends SubCommand {
     public void onCommand(CommandSender sender, String[] args) {
         List<String> titles = CustomMOTD.getMotdManager().getMotds().stream().filter(motdWrapper -> !motdWrapper.isRestricted()).map(MOTDWrapper::getTitle).collect(Collectors.toList());
         titles.add("default");
-        List<Template> templates = new ArrayList<>(List.of(
-                Template.template("list", String.join(", ", titles))
-        ));
+        TagResolver templates =TagResolver.resolver(
+                Placeholder.parsed("list", String.join(", ", titles))
+        );
         Util.sendMiniMessage(sender, Config.commandList, templates);
     }
 

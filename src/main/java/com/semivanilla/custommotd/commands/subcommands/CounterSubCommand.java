@@ -5,13 +5,12 @@ import com.semivanilla.custommotd.commands.SubCommand;
 import com.semivanilla.custommotd.config.Config;
 import com.semivanilla.custommotd.manager.wrapper.MOTDWrapper;
 import com.semivanilla.custommotd.util.Util;
-import net.kyori.adventure.text.minimessage.Template;
+import net.kyori.adventure.text.minimessage.tag.resolver.Placeholder;
+import net.kyori.adventure.text.minimessage.tag.resolver.TagResolver;
 import org.bukkit.command.CommandSender;
 
-import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.List;
-import java.util.stream.Collectors;
 
 public class CounterSubCommand extends SubCommand {
 
@@ -50,16 +49,19 @@ public class CounterSubCommand extends SubCommand {
             Util.sendMiniMessage(sender, Config.MOTDSetFailed, null);
             return;
         }
+        TagResolver placeholders = TagResolver.resolver(
+                Placeholder.parsed("motd", wrapper.getTitle())
+        );
         switch (option.toLowerCase()) {
             case "increase", "up" -> {
                 wrapper.changeCounter(+1);
                 CustomMOTD.getMotdManager().updateCounterMOTD();
-                Util.sendMiniMessage(sender, Config.counterIncreased, List.of(Template.template("motd", wrapper.getTitle())));
+                Util.sendMiniMessage(sender, Config.counterIncreased, placeholders);
             }
             case "decrease", "down" -> {
                 wrapper.changeCounter(-1);
                 CustomMOTD.getMotdManager().updateCounterMOTD();
-                Util.sendMiniMessage(sender, Config.counterDecreased, List.of(Template.template("motd", wrapper.getTitle())));
+                Util.sendMiniMessage(sender, Config.counterDecreased, placeholders);
             }
         }
     }

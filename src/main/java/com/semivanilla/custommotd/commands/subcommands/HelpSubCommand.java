@@ -4,11 +4,9 @@ import com.semivanilla.custommotd.commands.SubCommand;
 import com.semivanilla.custommotd.config.Config;
 import com.semivanilla.custommotd.util.Util;
 import net.kyori.adventure.text.Component;
-import net.kyori.adventure.text.minimessage.Template;
+import net.kyori.adventure.text.minimessage.tag.resolver.Placeholder;
+import net.kyori.adventure.text.minimessage.tag.resolver.TagResolver;
 import org.bukkit.command.CommandSender;
-
-import java.util.ArrayList;
-import java.util.List;
 
 public class HelpSubCommand extends SubCommand {
 
@@ -40,12 +38,12 @@ public class HelpSubCommand extends SubCommand {
             if (command != null) {
                 if (sender.hasPermission(command.getPermission())) {
                     message[0] = message[0].append(Component.newline());
-                    List<Template> templates = new ArrayList<>(List.of(
-                            Template.template("command", command.getSub()),
-                            Template.template("permission", command.getPermission()),
-                            Template.template("description", command.getDescription()),
-                            Template.template("usage", command.getSyntax())
-                    ));
+                    TagResolver templates = TagResolver.resolver(
+                            Placeholder.parsed("command", command.getSub()),
+                            Placeholder.parsed("permission", command.getPermission()),
+                            Placeholder.parsed("description", command.getDescription()),
+                            Placeholder.parsed("usage", command.getSyntax())
+                    );
                     Component info = Util.parseMiniMessage(Config.commandHelpList, templates);
                     message[0] = message[0].append(info);
                 }

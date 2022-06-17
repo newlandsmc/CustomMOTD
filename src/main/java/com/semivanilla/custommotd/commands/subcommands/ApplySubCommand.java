@@ -6,7 +6,8 @@ import com.semivanilla.custommotd.config.Config;
 import com.semivanilla.custommotd.manager.MOTDManager;
 import com.semivanilla.custommotd.manager.wrapper.MOTDWrapper;
 import com.semivanilla.custommotd.util.Util;
-import net.kyori.adventure.text.minimessage.Template;
+import net.kyori.adventure.text.minimessage.tag.resolver.Placeholder;
+import net.kyori.adventure.text.minimessage.tag.resolver.TagResolver;
 import org.bukkit.command.CommandSender;
 
 import java.util.List;
@@ -63,7 +64,7 @@ public class ApplySubCommand extends SubCommand {
             return;
         }
         motdManager.activateMOTD(wrapper);
-        Util.sendMiniMessage(sender, Config.MOTDSet, List.of(Template.template("motd", wrapper.getTitle())));
+        Util.sendMiniMessage(sender, Config.MOTDSet, TagResolver.resolver(Placeholder.parsed("motd", wrapper.getTitle())));
     }
 
     @Override

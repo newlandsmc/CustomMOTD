@@ -5,8 +5,8 @@ import com.semivanilla.custommotd.commands.SubCommand;
 import com.semivanilla.custommotd.config.Config;
 import com.semivanilla.custommotd.manager.wrapper.MOTDWrapper;
 import com.semivanilla.custommotd.util.Util;
-import net.kyori.adventure.text.Component;
-import net.kyori.adventure.text.minimessage.Template;
+import net.kyori.adventure.text.minimessage.tag.resolver.Placeholder;
+import net.kyori.adventure.text.minimessage.tag.resolver.TagResolver;
 import org.bukkit.command.CommandSender;
 
 import java.util.ArrayList;
@@ -41,9 +41,9 @@ public class CheckSubCommand extends SubCommand {
         if (wrapper != null) {
             motd = wrapper.getTitle();
         }
-        List<Template> templates = new ArrayList<>(List.of(
-                Template.template("motd", motd)
-        ));
+        TagResolver templates = TagResolver.resolver(
+                Placeholder.parsed("motd", motd)
+        );
         Util.sendMiniMessage(sender, Config.commandCheck, templates);
     }
 

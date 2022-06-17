@@ -2,7 +2,8 @@ package com.semivanilla.custommotd.commands;
 
 import com.semivanilla.custommotd.config.Config;
 import com.semivanilla.custommotd.util.Util;
-import net.kyori.adventure.text.minimessage.Template;
+import net.kyori.adventure.text.minimessage.tag.resolver.Placeholder;
+import net.kyori.adventure.text.minimessage.tag.resolver.TagResolver;
 import org.bukkit.command.Command;
 import org.bukkit.command.CommandExecutor;
 import org.bukkit.command.CommandSender;
@@ -33,7 +34,7 @@ public class MOTDCommand implements CommandExecutor, TabCompleter  {
             SubCommand subCommand = SubCommand.getCommands().get(command);
             if (subCommand.getPermission() != null) {
                 if (!sender.hasPermission(subCommand.getPermission())) {
-                    Util.sendMiniMessage(sender, Config.noPermission, List.of(Template.template("permission", subCommand.getPermission())));
+                    Util.sendMiniMessage(sender, Config.noPermission, TagResolver.resolver(Placeholder.parsed("permission", subCommand.getPermission())));
                     return true;
                 }
             }
