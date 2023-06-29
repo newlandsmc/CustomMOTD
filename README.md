@@ -75,7 +75,7 @@ CustomMOTD are saved within the motd directory in the CustomMOTD datafolder, whe
 line1: this is a test.
 # The second line in the server list
 line2: this is line2 for the test.
-# Should this motd be displayed in the serverlist? Only 1 motd can be activive at the same time.
+# Should this motd be displayed in the serverlist? Only 1 motd can be active at the same time.
 active: false
 # Should this motd be restricted and be controlled by a counter.
 restricted: false

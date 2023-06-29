@@ -25,11 +25,10 @@ public abstract class SubCommand {
         commands = new HashMap<>();
 
         loadCommand(
-                new HelpSubCommand(),
-                new ApplySubCommand(), new CheckSubCommand(), new CreateSubCommand(),
-                new ListSubCommand(), new CounterSubCommand(),
-                new ResetSubCommand(),
-                new ReloadSubCommand());
+                new HelpSubCommand(), new ApplySubCommand(), new CheckSubCommand(), new CreateSubCommand(),
+                new ListSubCommand(), new CounterSubCommand(), new ResetSubCommand(), new ReloadSubCommand(),
+                new EnableSubCommand()
+        );
     }
 
     private static void loadCommand(SubCommand ... subs) {

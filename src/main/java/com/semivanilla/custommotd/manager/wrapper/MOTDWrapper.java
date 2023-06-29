@@ -1,8 +1,8 @@
 package com.semivanilla.custommotd.manager.wrapper;
 
-import com.semivanilla.custommotd.CustomMOTD;
-import com.semivanilla.custommotd.config.Config;
 import com.semivanilla.custommotd.config.MOTDConfig;
+
+import java.util.Date;
 
 public class MOTDWrapper {
 
@@ -15,7 +15,7 @@ public class MOTDWrapper {
 
     private final MOTDConfig config;
     private boolean dirty = false;
-
+    private long expiryTime = -1;
     public MOTDWrapper(MOTDConfig motdConfig) {
         this.title = motdConfig.getMotdTitle();
         this.line1 = motdConfig.getLine1();
@@ -50,6 +50,14 @@ public class MOTDWrapper {
         return line2;
     }
 
+    public long getExpiryTime() {
+        return expiryTime;
+    }
+
+    public void setExpiryTime(long expiryTime) {
+        this.expiryTime = expiryTime;
+    }
+
     public void setLine1(String input) {
         line1 = input;
         dirty = true;
@@ -67,6 +75,13 @@ public class MOTDWrapper {
     public boolean isActive() {
         return active;
     }
+    public boolean isExpired() {
+        if (expiryTime == -1) {
+            return false;
+        }
+        return System.currentTimeMillis() > expiryTime;
+    }
+
 
     public void setActive(boolean status) {
         active = status;
@@ -101,7 +116,7 @@ public class MOTDWrapper {
     }
 
     public String toString() {
-        return "Title: " + this.getTitle() + "\n" + "Line1: " + this.getLine1() + "\n" + "Line2: " + this.getLine2() + "\n" + "Active: " + this.isActive() + "\n" + "Counter: " + this.getCounter();
+        return "Title: " + this.getTitle() + "\n" + "Line1: " + this.getLine1() + "\n" + "Line2: " + this.getLine2() + "\n" + "Active: " + this.isActive() + "\n" + "Counter: " + this.getCounter() + "\n" + "Expire: " + this.getExpiryTime() + " (" + new Date(this.getExpiryTime()) + ")";
     }
 
 }

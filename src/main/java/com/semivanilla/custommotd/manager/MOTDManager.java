@@ -58,6 +58,7 @@ public class MOTDManager {
         getMotds().forEach(motdWrapper -> {
             if (motdWrapper.isActive()) motdWrapper.setActive(false);
             if (motdWrapper.getCounter() > 0) motdWrapper.resetCounter();
+            motdWrapper.setExpiryTime(-1);
             motdWrapper.save();
         });
     }
@@ -77,11 +78,18 @@ public class MOTDManager {
     public MOTDWrapper getActiveMOTD() {
         if (activeMOTD == null) {
             getMotds().stream()
-                    .filter(MOTDWrapper::isActive)
-                    .findFirst()
-                    .ifPresent(wrapper -> activeMOTD = wrapper);
+                    .filter(MOTDWrapper::isActive) // Filter out all inactive MOTDs
+                    .findFirst() // Get the first one
+                    .ifPresent(wrapper -> activeMOTD = wrapper); // Set it as the active MOTD
         }
         if (Config.enableCounter && counterMOTD != null && activeMOTD == null) return counterMOTD;
+        if (activeMOTD == null) {
+            return getMotds().stream()
+                    .filter(motdWrapper -> {
+                        return motdWrapper.getExpiryTime() > 0 && !motdWrapper.isExpired(); // Filter out all expired MOTDs
+                    })
+                    .findFirst().orElse(null);
+        }
         return activeMOTD;
     }
 

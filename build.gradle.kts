@@ -19,7 +19,7 @@ dependencies {
 tasks {
 
     runServer {
-        minecraftVersion("1.19")
+        minecraftVersion("1.20.1")
     }
 
     shadowJar {
