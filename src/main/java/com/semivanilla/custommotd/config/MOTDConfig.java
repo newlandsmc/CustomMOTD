@@ -73,6 +73,13 @@ public class MOTDConfig extends YamlConfiguration {
         return motdTitle;
     }
 
+    public long getExpiry() {
+        return getLong("expiry", -1);
+    }
+    public void setExpiry(long expiry) {
+        set("expiry", expiry);
+    }
+
     public String getLine1() {
         return getString("line1", "This is the first line.");
     }

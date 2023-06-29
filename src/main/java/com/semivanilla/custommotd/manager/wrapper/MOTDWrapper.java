@@ -23,6 +23,7 @@ public class MOTDWrapper {
         this.restricted = motdConfig.isRestricted();
         this.active = motdConfig.isActive();
         this.counter = motdConfig.getCounter();
+        this.expiryTime = motdConfig.getExpiry();
         this.config = motdConfig;
     }
 
@@ -56,6 +57,7 @@ public class MOTDWrapper {
 
     public void setExpiryTime(long expiryTime) {
         this.expiryTime = expiryTime;
+        dirty = true;
     }
 
     public void setLine1(String input) {
@@ -110,6 +112,7 @@ public class MOTDWrapper {
             config.setActive(active);
             config.setRestricted(restricted);
             config.setCounter(counter);
+            config.setExpiry(expiryTime);
             config.save();
             dirty = false;
         }
